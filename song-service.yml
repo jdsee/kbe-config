@@ -1,0 +1,13 @@
+---
+server:
+  port: ${PORT:8000}
+  servlet:
+    context-path: /rest
+spring:
+  jackson:
+    deserialization:
+      FAIL_ON_UNKNOWN_PROPERTIES: true
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
