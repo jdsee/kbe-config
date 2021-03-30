@@ -1,19 +1,15 @@
 ---
 server:
-  port: ${PORT:8008}
+  port: ${PORT:8009}
   servlet:
     context-path: /rest
-spring:
-  jackson:
-    deserialization:
-      FAIL_ON_UNKNOWN_PROPERTIES: true
 eureka:
   client:
     service-url:
       default-zone: ${EUREKA_URI:http://localhost:8761/eureka}
     instance:
       prefereIpAddress: true
-auth:
+security:
   jwt:
     key:
-      public: ${KBE_JWT_PUBLIC_KEY}
+      public:

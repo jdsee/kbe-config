@@ -1,7 +1,40 @@
+---
 server:
   port: 8762
 
 eureka:
   client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+    service-url:
+      default-zone: ${EUREKA_URI:http://localhost:8761/eureka}
+      instance:
+        prefereIpAddress: true
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: songs
+          uri: lb://SONG-SERVICE
+          predicates:
+            - Path=/songs/**
+          filters:
+            - RewritePath=/songs/(?<path>.*), /$\{path}
+        - id: playlists
+          uri: lb://PLAYLIST-SERVICE
+          predicates:
+            - Path=/playlists/**
+          filters:
+            - RewritePath=/playlists/(?<path>.*), /$\{path}
+        - id: users
+          uri: lb://USERS-SERVICE
+          predicates:
+            - Path=/users/**
+          filters:
+            - RewritePath=/users/(?<path>.*), /$\{path}
+        - id: auth
+          uri: lb://AUTH-SERVICE
+          filters:
+            - RewritePath=(?<path>.*), /$\{path}

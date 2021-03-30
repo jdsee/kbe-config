@@ -1,0 +1,18 @@
+---
+server:
+  port: 8001
+  servlet:
+    context-path: /rest
+
+eureka:
+  client:
+    service-url:
+      default-zone: ${EUREKA_URI:http://localhost:8761/eureka}
+      instance:
+        prefereIpAddress: true
+
+auth:
+  jwt:
+    expiry: 30 # minutes
+    key:
+      public: ${KBE_JWT_PRIVATE_KEY} # rsa-key
