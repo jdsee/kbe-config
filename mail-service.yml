@@ -9,6 +9,15 @@ eureka:
       default-zone: ${EUREKA_URI:http://localhost:8761/eureka}
     instance:
       prefereIpAddress: true
+mail-sender:
+  host: ${MAIL_SENDER_HOST:smtp.gmail.com}
+  port: ${MAIL_SENDER_PORT:587}
+  username: ${MAIL_SENDER_USERNAME:kbe.microservices}
+  password: ${MAIL_SENDER_PASSWORD:%CdL6ANQkmbt^64t}
+  protocol: ${MAIL_SENDER_PROTOCOL:smtp}
+  auth: ${MAIL_SENDER_AUTH:true}
+  starttls-enable: ${MAIL_SENDER_STARTTLS_ENABLE:true}
+  debug: ${MAIL_SENDER_DEBUG:true}
 auth:
   jwt:
     key:
