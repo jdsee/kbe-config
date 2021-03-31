@@ -19,24 +19,24 @@ spring:
         - id: songs
           uri: lb://SONG-SERVICE
           predicates:
-            - Path=/songs/**
+            - Path=/rest/songs/**
           filters:
             - RewritePath=/songs/(?<path>.*), /$\{path}
         - id: playlists
           uri: lb://PLAYLIST-SERVICE
           predicates:
-            - Path=/playlists/**
+            - Path=/rest/playlists/**
           filters:
             - RewritePath=/playlists/(?<path>.*), /$\{path}
         - id: users
           uri: lb://USERS-SERVICE
           predicates:
-            - Path=/users/**
+            - Path=/rest/users/**
           filters:
             - RewritePath=/users/(?<path>.*), /$\{path}
         - id: auth
           uri: lb://AUTH-SERVICE
           predicates:
-            - Path=/auth/**
+            - Path=/rest/auth/**
           filters:
             - RewritePath=(?<path>.*), /$\{path}
