@@ -19,7 +19,7 @@ spring:
         - id: songs
           uri: lb://SONG-SERVICE
           predicates:
-            - Path=/rest/songs/**, /rest/playlists/**, /rest/playlists/share/**
+            - Path=/rest/songs/**, /rest/playlists/**, /rest/share-playlist/**
           filters:
             - RewritePath=/songs/(?<path>.*), /$\{path}
         - id: playlists
