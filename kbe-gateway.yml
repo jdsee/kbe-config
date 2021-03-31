@@ -51,4 +51,4 @@ spring:
           predicates:
             - Path=/rest/auth/**
           filters:
-            - RewritePath=(?<path>.*), /$\{path}
+            - RewritePath=/auth/(?<path>.*), /$\{path}
