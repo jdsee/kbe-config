@@ -15,4 +15,4 @@ auth:
   jwt:
     expiry: 30 # minutes
     key:
-      public: ${KBE_JWT_PRIVATE_KEY} # rsa-key
+      private: ${KBE_JWT_PRIVATE_KEY} # rsa-key
