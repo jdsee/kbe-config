@@ -15,6 +15,18 @@ spring:
       discovery:
         locator:
           enabled: true
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - DELETE
+              - PUT
+              - OPTIONS
+            allowedHeaders:
+              - Authorization
       routes:
         - id: songs
           uri: lb://SONG-SERVICE
