@@ -11,6 +11,12 @@ eureka:
       instance:
         prefereIpAddress: true
 
+spring:
+  data:
+    mongodb:
+      host: ${AUTH_DB_PORT:localhost}
+      port: ${AUTH_DB_PORT:27017} # default
+
 auth:
   jwt:
     expiry: 30 # minutes
