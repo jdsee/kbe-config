@@ -16,25 +16,27 @@ spring:
         locator:
           enabled: true
       routes:
-      - id: songs
-        uri: lb://SONG-SERVICE
-        predicates:
-        - Path=/songs/**
-        filters:
-        - RewritePath=/songs/(?<path>.*), /$\{path}
-      - id: playlists
-        uri: lb://PLAYLIST-SERVICE
-        predicates:
-        - Path=/playlists/**
-        filters:
-        - RewritePath=/playlists/(?<path>.*), /$\{path}
-      - id: users
-        uri: lb://USERS-SERVICE
-        predicates:
-        - Path=/users/**
-        filters:
-        - RewritePath=/users/(?<path>.*), /$\{path}
-      - id: auth
-        uri: lb://AUTH-SERVICE
-        filters:
-        - RewritePath=(?<path>.*), /$\{path}
+        - id: songs
+          uri: lb://SONG-SERVICE
+          predicates:
+            - Path=/songs/**
+          filters:
+            - RewritePath=/songs/(?<path>.*), /$\{path}
+        - id: playlists
+          uri: lb://PLAYLIST-SERVICE
+          predicates:
+            - Path=/playlists/**
+          filters:
+            - RewritePath=/playlists/(?<path>.*), /$\{path}
+        - id: users
+          uri: lb://USERS-SERVICE
+          predicates:
+            - Path=/users/**
+          filters:
+            - RewritePath=/users/(?<path>.*), /$\{path}
+        - id: auth
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/auth/**
+          filters:
+            - RewritePath=(?<path>.*), /$\{path}
